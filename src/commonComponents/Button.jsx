@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Text extends React.Component {
+class Button extends React.Component {
     render(){
         return (
             <input className={this.props.className}
@@ -11,7 +11,7 @@ class Text extends React.Component {
         )
     }
 }
-export default Text;
+export default Button;
 
 Text.propTypes = {
     className: PropTypes.string,
