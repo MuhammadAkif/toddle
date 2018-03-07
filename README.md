@@ -1,11 +1,11 @@
-#Toddle
+# Toddle
 This app helps you in your daily task management.
 
-#Installation Instruction
+# Installation Instruction
 Just clone this repository do npm install. After that enter command in your terminal npm start.For Test script to run you can use npm test.
 
-#Authors
+# Authors
 Muhammad Akif
 
-#License
+# License
 This project is licensed under the MIT License - see the LICENSE.md file for details
