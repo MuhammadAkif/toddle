@@ -3,12 +3,20 @@ import PropTypes from 'prop-types';
 class Text extends React.Component {
     render(){
         return (
-            <input className={this.props.className}
-                   type="text"
-                   ref={this.props.todoInputRef}
-                   required={this.props.required}
-                   onChange={e => {this.props.handleOnChange(e);}}
-            />
+            this.props.type === "Input" ?
+                <input className={this.props.className}
+                                      type="text"
+                                      ref={this.props.todoInputRef}
+                                      placeholder="Please Enter Todo Items"
+                                      required={this.props.required}
+                                      value={this.props.text}
+                                      onChange={e => {
+                                          this.props.handleOnChange(e);
+                                      }}
+                                />
+                            :
+
+                <span>{this.props.text}</span>
         )
     }
 }
@@ -18,7 +26,8 @@ Text.propTypes = {
     className: PropTypes.string,
     handleOnChange: PropTypes.func,
     required:PropTypes.bool,
-    todoInputRef:PropTypes.element
+    type:PropTypes.oneOf(['Text','Input']),
+    text:PropTypes.string
 };
 Text.defaultProps = {
     className: 'Text',
@@ -26,6 +35,8 @@ Text.defaultProps = {
         console.error("Please provide error handler");
     },
     required:true,
-    todoInputRef:null
+    todoInputRef:null,
+    type:'Input',
+    text:""
 };
 

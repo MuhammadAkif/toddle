@@ -6,7 +6,8 @@ class Button extends React.Component {
         return (
             <input className={this.props.className}
                    type={this.props.type}
-                   onClick={e => {(this.props.type === "submit") ? this.props.handleOnClick(e) : null}}
+                   value={this.props.buttonText}
+                   onClick={e => {(this.props.type === "submit") ?  null : this.props.handleOnClick(e)}}
             />
         )
     }
@@ -16,13 +17,15 @@ export default Button;
 Text.propTypes = {
     className: PropTypes.string,
     handleOnClick: PropTypes.func,
-    type:PropTypes.string
+    type:PropTypes.string,
+    buttonText:PropTypes.string
 };
 Text.defaultProps = {
     className: 'default-btn',
     handleOnClick: e=>{
         console.error("No function is provided");
     },
-    type:"button"
+    type:"button",
+    buttonText:""
 };
 

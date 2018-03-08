@@ -1,7 +1,6 @@
-
 import React from 'react';
-import Text from '../commonComponents/Text.jsx';
 import AddTodo from './AddTodo.jsx';
+import TodoListItem from './TodoListItem.jsx';
 
 class TodoApp extends React.Component {
     constructor() {
@@ -10,28 +9,27 @@ class TodoApp extends React.Component {
         this.state = {
             todoItems:[]
         }
-        this.handleOnChangeText = this.handleOnChangeText.bind(this);
         this.handleTodoAdd = this.handleTodoAdd.bind(this);
-
-    }
-    handleOnChangeText(evt){
-        this.setState({todoText:evt.target.value});
+        this.handleTodoUpdate = this.handleTodoUpdate.bind(this);
     }
     handleTodoAdd(newTodo){
-        debugger
         this.setState({
             todoItems: [...this.state.todoItems, newTodo]
         });
     }
-
+    handleTodoUpdate(updatedItem){
+        let newTodoItems = this.state.todoItems.map((item)=>{
+            return (item.id === updatedItem.id) ? updatedItem : item;
+        });
+        this.setState({todoItems:newTodoItems});
+    }
     render(){
         return(
             <div>
-              {/*<Text className="Text" refs={(input) => {this.getEditInput = input;}} handleOnChange={this.handleOnChangeText} />*/}
                 <AddTodo handleTodoAdd={this.handleTodoAdd} />
               {
-                  this.state.todoItems.map((item)=>{
-                        return <li>{item.text}</li>
+                  this.state.todoItems.map((item,index)=>{
+                        return <TodoListItem todoItem={item} handleTodoUpdate={this.handleTodoUpdate}  key={index}/>
                   })
               }
             </div>
