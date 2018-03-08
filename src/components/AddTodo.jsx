@@ -41,7 +41,7 @@ class AddTodo extends React.Component {
         return(
             <div>
                 <form onSubmit={this.handleAddTodo}>
-                        <Text className="Text" key={0} text={this.state.todoText} todoInputRef={input => this.todoInput = input} handleOnChange={this.handleOnChangeText} />
+                        <Text className="Text form-control" key={0} text={this.state.todoText} todoInputRef={input => this.todoInput = input} handleOnChange={this.handleOnChangeText} />
                         <Button className="btn" key={1} type="submit" buttonText={"+"} />
                 </form>
             </div>

@@ -43,36 +43,41 @@ class TodoItem extends React.Component {
     }
     render(){
         return(
-             <div className="todoListItem">
+            <div className="todoListItem">
                 <form onSubmit={this.handleTodoUpdate}>
-                    <Checkbox
-                        checked={this.props.todoItem.done}
-                        handleOnClick={this.handleTodoDone}
-                    />
-                    <Text className={!this.state.edit ? this.props.todoItem.done ? "crossText" : "simpleText" : "InputClass"}
-                          key={1}
-                          type={this.state.edit ? "Input" : "Text"}
-                          text={this.state.todoText}
-                          todoInputRef={input => this.todoInput = input}
-                          handleOnChange={this.handleOnChangeText}
-                    />
-                    {(!this.state.edit) ?
-                        (!this.props.todoItem.done) ?
+                    <div className="row">
+                    <div className="col-xs-12 col-md-12">
+                        <Checkbox
+                            checked={this.props.todoItem.done}
+                            handleOnClick={this.handleTodoDone}
+                        />
+                        <Text className={!this.state.edit ? this.props.todoItem.done ? "crossText" : "simpleText" : "form-control InputClass"}
+                              key={1}
+                              type={this.state.edit ? "Input" : "Text"}
+                              text={this.state.todoText}
+                              todoInputRef={input => this.todoInput = input}
+                              handleOnChange={this.handleOnChangeText}
+                        />
+                        {(!this.state.edit) ?
+                            (!this.props.todoItem.done) ?
+
+                                <Button
+                                    className="btn btn-primary btn-sm"
+                                    key={0}
+                                    buttonText="Edit"
+                                    type="button"
+                                    handleOnClick={(e)=>{this.setState({edit:true})}}
+                                /> : null
+                            :
                             <Button
-                            className="btn"
-                            key={0}
-                            buttonText="Edit"
-                            type="button"
-                            handleOnClick={(e)=>{this.setState({edit:true})}}
-                        /> : null
-                        :
-                        <Button
-                            className="btn"
-                            buttonText="Save"
-                            key={5}
-                            type="submit"
-                        />}
-                    <Button className="btn" buttonText="Delete" key={2} type="button" handleOnClick={()=>{this.props.handleTodoDelete(this.props.itemIndex);}} />
+                                className="btn btn-success btn-sm"
+                                buttonText="Save"
+                                key={5}
+                                type="submit"
+                            />}
+                        <Button className="btn btn-danger btn-sm" buttonText="Delete" key={2} type="button" handleOnClick={()=>{this.props.handleTodoDelete(this.props.itemIndex);}} />
+                    </div>
+                    </div>
                 </form>
             </div>
         );

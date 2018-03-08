@@ -32,13 +32,16 @@ class TodoApp extends React.Component {
     }
     render(){
         return(
-            <div>
+            <div className="wrapper">
+
                 <AddTodo handleTodoAdd={this.handleTodoAdd} />
+                <div className="todolist-container fancyscroller">
               {
                   this.state.todoItems.map((item,index)=>{
                         return <TodoItem todoItem={item} itemIndex={index} handleTodoDelete={this.handleTodoDelete} handleTodoUpdate={this.handleTodoUpdate}  key={index}/>
                   })
               }
+                </div>
             </div>
         );
     }
