@@ -13,12 +13,12 @@ class CheckBox extends React.Component {
 }
 export default CheckBox;
 
-Text.propTypes = {
+CheckBox.propTypes = {
     className: PropTypes.string,
     handleOnClick: PropTypes.func,
     type:PropTypes.string
 };
-Text.defaultProps = {
+CheckBox.defaultProps = {
     className: 'default-btn',
     handleOnClick: e=>{
         console.error("No function is provided");

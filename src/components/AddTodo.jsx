@@ -42,7 +42,7 @@ class AddTodo extends React.Component {
             <div>
                 <form onSubmit={this.handleAddTodo}>
                         <Text className="Text" key={0} text={this.state.todoText} todoInputRef={input => this.todoInput = input} handleOnChange={this.handleOnChangeText} />
-                        <Button className="btn" key={1} type="submit" />
+                        <Button className="btn" key={1} type="submit" buttonText={"+"} />
                 </form>
             </div>
         );

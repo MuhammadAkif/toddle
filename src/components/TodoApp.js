@@ -1,6 +1,6 @@
 import React from 'react';
 import AddTodo from './AddTodo.jsx';
-import TodoListItem from './TodoListItem.jsx';
+import TodoItem from './TodoItem.jsx';
 
 class TodoApp extends React.Component {
     constructor() {
@@ -36,7 +36,7 @@ class TodoApp extends React.Component {
                 <AddTodo handleTodoAdd={this.handleTodoAdd} />
               {
                   this.state.todoItems.map((item,index)=>{
-                        return <TodoListItem todoItem={item} itemIndex={index} handleTodoDelete={this.handleTodoDelete} handleTodoUpdate={this.handleTodoUpdate}  key={index}/>
+                        return <TodoItem todoItem={item} itemIndex={index} handleTodoDelete={this.handleTodoDelete} handleTodoUpdate={this.handleTodoUpdate}  key={index}/>
                   })
               }
             </div>

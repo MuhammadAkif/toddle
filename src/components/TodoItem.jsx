@@ -4,7 +4,7 @@ import Button from '../commonComponents/Button.jsx';
 import Checkbox from '../commonComponents/CheckBox.jsx';
 import {Todo} from '../models/Todo';
 
-class TodoListItem extends React.Component {
+class TodoItem extends React.Component {
     constructor() {
         super();
         this.todoInput = null;
@@ -43,7 +43,7 @@ class TodoListItem extends React.Component {
     }
     render(){
         return(
-             <div>
+             <div className="todoListItem">
                 <form onSubmit={this.handleTodoUpdate}>
                     <Checkbox
                         checked={this.props.todoItem.done}
@@ -79,4 +79,4 @@ class TodoListItem extends React.Component {
     }
 }
 
-export default TodoListItem;
+export default TodoItem;
