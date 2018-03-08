@@ -57,13 +57,14 @@ class TodoListItem extends React.Component {
                           handleOnChange={this.handleOnChangeText}
                     />
                     {(!this.state.edit) ?
-                        <Button
+                        (!this.props.todoItem.done) ?
+                            <Button
                             className="btn"
                             key={0}
                             buttonText="Edit"
                             type="button"
                             handleOnClick={(e)=>{this.setState({edit:true})}}
-                        />
+                        /> : null
                         :
                         <Button
                             className="btn"
@@ -71,7 +72,7 @@ class TodoListItem extends React.Component {
                             key={5}
                             type="submit"
                         />}
-                    <Button className="btn" buttonText="Delete" key={2} type="button" handleOnClick={()=>{console.log("sadfasdfasdfa")}} />
+                    <Button className="btn" buttonText="Delete" key={2} type="button" handleOnClick={()=>{this.props.handleTodoDelete(this.props.itemIndex);}} />
                 </form>
             </div>
         );

@@ -11,6 +11,7 @@ class TodoApp extends React.Component {
         }
         this.handleTodoAdd = this.handleTodoAdd.bind(this);
         this.handleTodoUpdate = this.handleTodoUpdate.bind(this);
+        this.handleTodoDelete = this.handleTodoDelete.bind(this);
     }
     handleTodoAdd(newTodo){
         this.setState({
@@ -23,13 +24,19 @@ class TodoApp extends React.Component {
         });
         this.setState({todoItems:newTodoItems});
     }
+    handleTodoDelete(itemIndex){
+        debugger
+        let newTodoItems = [...this.state.todoItems];
+        newTodoItems.splice(itemIndex,1);
+        this.setState({todoItems:newTodoItems});
+    }
     render(){
         return(
             <div>
                 <AddTodo handleTodoAdd={this.handleTodoAdd} />
               {
                   this.state.todoItems.map((item,index)=>{
-                        return <TodoListItem todoItem={item} handleTodoUpdate={this.handleTodoUpdate}  key={index}/>
+                        return <TodoListItem todoItem={item} itemIndex={index} handleTodoDelete={this.handleTodoDelete} handleTodoUpdate={this.handleTodoUpdate}  key={index}/>
                   })
               }
             </div>

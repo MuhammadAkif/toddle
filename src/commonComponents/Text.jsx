@@ -16,7 +16,7 @@ class Text extends React.Component {
                                 />
                             :
 
-                <span>{this.props.text}</span>
+                <span className={this.props.className}>{this.props.text}</span>
         )
     }
 }
