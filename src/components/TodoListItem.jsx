@@ -28,7 +28,6 @@ class TodoListItem extends React.Component {
     }
 
     handleTodoUpdate(evt){
-        debugger
         evt.preventDefault();
         let id,text,done;
         ({id,text,done} = {id:this.props.todoItem.id,text:this.props.todoItem.text,done:this.props.todoItem.done});
@@ -36,7 +35,6 @@ class TodoListItem extends React.Component {
         this.props.handleTodoUpdate(Object.assign({},new Todo(id,text,done)));
     }
     handleTodoDone(evt){
-        debugger
         this.props.todoItem.done = !this.props.todoItem.done;
         this.props.handleTodoUpdate(this.props.todoItem);
     }
