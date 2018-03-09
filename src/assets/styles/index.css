@@ -31,7 +31,7 @@ input[type="checkbox"] {
   background: rgba(0, 0, 0, 0.5);
 }
 .todolist-container{
-  height:200px;
+  height:700px;
   overflow-y: auto;
   overflow-x:hidden ;
 }

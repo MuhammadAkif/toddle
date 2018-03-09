@@ -2,7 +2,7 @@
   "name": "toddle",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://muhammadakif.github.io/toddle/",
+  "homepage": "https://muhammadakif.github.io/toddle",
   "dependencies": {
     "gh-pages": "1.1.0",
     "react": "^16.2.0",
